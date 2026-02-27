@@ -5,7 +5,7 @@ import HeroSection from './components/Herosection';
 import Skills from './components/Skillssection';
 import Projects from './components/Projects';
 import Contact from './components/Contactme';
-import Preloader from "./components/Preloader";
+import Preloader from "./components/preloader";
 
 function App() {
   const [loading, setLoading] = useState(true);
