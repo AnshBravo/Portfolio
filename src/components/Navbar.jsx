@@ -1,20 +1,88 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import logoPng from '../assets/Ansh Bravo Brand logo/black-brand-logo.png'
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("Home");
   const [isOpen, setIsOpen] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
+
+  // Track scroll position for logo
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowLogo(true);
+      } else {
+        setShowLogo(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Track scroll position for active section
+  useEffect(() => {
+    const handleScrollSpy = () => {
+      const sections = [
+        { id: "home", name: "Home" },
+        { id: "skills", name: "Skills" },
+        { id: "project", name: "Projects" },
+        { id: "contactme", name: "Contact Me" }
+      ];
+
+      const scrollPosition = window.scrollY + 150; // Offset for navbar height
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i].id);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          if (scrollPosition >= sectionTop) {
+            setActiveTab(sections[i].name);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollSpy);
+    handleScrollSpy(); // Call once on mount
+
+    return () => window.removeEventListener("scroll", handleScrollSpy);
+  }, []);
 
   const links = [
     { name: "Home", href: "#home" },
-    { name: "Projects", href: "#project" },
     { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#project" },
     { name: "Contact Me", href: "#contactme" }
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full h-20 bg-black z-50 flex items-center justify-center px-6">
+    <header className="fixed top-0 left-0 w-full h-20 bg-black z-50 flex items-center justify-center px-4 sm:px-6 md:px-10 overflow-hidden">
       
+      {/* 1. SCROLL LOGO: Appears on the left on Desktop */}
+     {/* 1. SCROLL LOGO: Absolute positioned so it doesn't bump the 'pill' menu */}
+<div className="hidden sm:block absolute left-4 sm:left-6 md:left-10">
+  <AnimatePresence>
+    {showLogo && (
+      <motion.div
+        initial={{ x: -20, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: -20, opacity: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
+        <img 
+  src={logoPng} 
+  alt="Logo" 
+  className="h-16 sm:h-20 w-auto max-w-[150px] object-contain screen-blend" 
+  style={{ mixBlendMode: 'screen' }} 
+/>
+      </motion.div>
+    )}
+  </AnimatePresence>
+</div>
+
       {/* Desktop Navigation */}
       <nav className="hidden sm:block bg-white p-1 rounded-full shadow-xl">
         <ul className="flex items-center font-redrose">
@@ -44,7 +112,7 @@ const Navbar = () => {
         </ul>
       </nav>
 
-      {/* Mobile Hamburger Button - Fixed Alignment */}
+      {/* Mobile Hamburger Button */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className="sm:hidden relative z-[60] flex items-center justify-center w-10 h-10 focus:outline-none"
@@ -52,7 +120,7 @@ const Navbar = () => {
         <div className="relative flex flex-col items-center justify-center w-8 h-8">
           <motion.span 
             animate={isOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -8 }}
-            className={`absolute w-8 h-0.5 block rounded-full transition-colors bg-white`}
+            className="absolute w-8 h-0.5 block rounded-full bg-white"
           />
           <motion.span 
             animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
@@ -60,21 +128,21 @@ const Navbar = () => {
           />
           <motion.span 
             animate={isOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 8 }}
-            className={`absolute w-8 h-0.5 block rounded-full transition-colors bg-white`}
+            className="absolute w-8 h-0.5 block rounded-full bg-white"
           />
         </div>
       </button>
 
-      {/* Mobile Menu Overlay - Black BG / White Text */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute top-0 left-0 w-full h-screen bg-black flex flex-col items-center justify-center sm:hidden"
+            className="fixed inset-0 w-screen h-screen bg-black flex flex-col items-center justify-center sm:hidden overflow-hidden"
           >
-            <ul className="flex flex-col items-center gap-10 font-rose-red">
+            <ul className="flex flex-col items-center gap-10 font-redrose">
               {links.map((item) => (
                 <li key={item.name}>
                   <a

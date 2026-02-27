@@ -4,13 +4,13 @@ const HeroSection = () => {
   const name = "ANSHBRAVO";
 
   return (
-    <section id="home" className="relative  w-full min-h-screen flex flex-col items-center pt-13.5 overflow-hidden">
+    <section id="home" className="relative w-full min-h-screen flex flex-col items-center pt-13.5 overflow-hidden">
       
-      <div className="h-10">
-        <h1 className="font-montserrat text-[40px] sm:text-[60px] md:text-[85px] scale-y-[-1] uppercase flex w-[100vw] justify-between px-2
+      <div className="h-10 w-full">
+        <h1 className="font-montserrat text-[40px] sm:text-[60px] md:text-[85px] scale-y-[-1] uppercase flex w-full justify-between px-2
                [mask-image:linear-gradient(to_bottom,transparent,black_70%)]
                filter blur-[0px] transition-all duration-700">{name.split("").map((char, i) => <span key={i}>{char}</span>)}</h1>
-        <h1 className="font-montserrat text-[40px] sm:text-[60px] md:text-[85px] flex w-[100vw] justify-between uppercase transition-all duration-700 -mt-17.5 px-2">{name.split("").map((char, i) => <span key={i}>{char}</span>)}</h1>
+        <h1 className="font-montserrat text-[40px] sm:text-[60px] md:text-[85px] flex w-full justify-between uppercase transition-all duration-700 -mt-17.5 px-2">{name.split("").map((char, i) => <span key={i}>{char}</span>)}</h1>
       </div>
 
       {/* 4. Introduction Text Block */}
