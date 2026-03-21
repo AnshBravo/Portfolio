@@ -4,17 +4,17 @@ const HeroSection = () => {
   const name = "ANSHBRAVO";
 
   return (
-    <section id="home" className="relative w-full min-h-screen flex flex-col items-center pt-13.5 overflow-hidden">
+    <section id="home" className="relative w-full min-h-screen flex flex-col items-center pt-16 sm:pt-14 md:pt-12 overflow-hidden">
       
       <div className="h-10 w-full">
         <h1 className="font-montserrat text-[40px] sm:text-[60px] md:text-[85px] scale-y-[-1] uppercase flex w-full justify-between px-2
                [mask-image:linear-gradient(to_bottom,transparent,black_70%)]
                filter blur-[0px] transition-all duration-700">{name.split("").map((char, i) => <span key={i}>{char}</span>)}</h1>
-        <h1 className="font-montserrat text-[40px] sm:text-[60px] md:text-[85px] flex w-full justify-between uppercase transition-all duration-700 -mt-17.5 px-2">{name.split("").map((char, i) => <span key={i}>{char}</span>)}</h1>
+        <h1 className="font-montserrat text-[40px] sm:text-[60px] md:text-[85px] flex w-full justify-between uppercase transition-all duration-700 -mt-8 sm:-mt-12 md:-mt-17 px-2">{name.split("").map((char, i) => <span key={i}>{char}</span>)}</h1>
       </div>
 
       {/* 4. Introduction Text Block */}
-      <div className="relative z-10 w-full px-4 sm:px-6 md:px-10 py-8 md:py-10 mt-16 sm:mt-20 md:mt-28 bg-black grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+      <div className="relative z-10 w-full px-4 sm:px-6 md:px-10 py-8 md:py-10 mt-8 sm:mt-17 md:mt-28 bg-black grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
   
   {/* Column 1: Description */}
   <motion.div 
@@ -24,7 +24,7 @@ const HeroSection = () => {
     viewport={{ once: true, amount: 0.3 }}
     transition={{ duration: 0.8, ease: "easeOut" }}
   >
-    <h2 className="font-bodoni font-bold text-white text-xl sm:text-2xl md:text-3xl mb-4 tracking-widest uppercase">
+    <h2 className="font-bodoni font-bold text-white text-xl sm:text-3xl sm:text-center md:text-4xl mb-4 tracking-widest uppercase">
       Introduction
     </h2>
     
@@ -45,18 +45,20 @@ const HeroSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        a web developer, UX designer, voice-over artist, music producer, and 3D modeller.
+        Frontend Engineer. BBA Student. Calisthenics Guy
       </motion.p>
       <motion.p 
-        className="font-redrose text-sm sm:text-base leading-relaxed text-white/60"
+        className="font-redrose text-sm sm:text-base leading-relaxed text-white/60 first-letter:text-xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.6 }}
       >
-        I build clean, functional digital products and creative assets from scratch. 
-        My focus is on turning ideas into reality — whether it's a responsive web app, 
-        intuitive UX flow, professional voice-over, original beats, or detailed 3D models.
+       Specialized in Frontend Development and obsessed with the intersection of UI/UX 
+       and brand storytelling. Whether it’s optimizing a React 
+       workflow or deploying seamless animations with Framer Motion, 
+       I build with a relentless drive for perfection. I create digital products for
+        those who value speed, precision, and a distinct visual edge.
       </motion.p>
     </div>
   </motion.div>

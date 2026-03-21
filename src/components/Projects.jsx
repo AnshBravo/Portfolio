@@ -54,7 +54,7 @@ const Projects = () => {
                 className="group cursor-pointer"
               >
                 {/* The Card Body (White Rectangle in your Figma) */}
-                <div className="aspect-[4/5] bg-white rounded-lg sm:rounded-xl mb-3 sm:mb-4 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]" />
+                <div className="aspect-[2/1] md:aspect-[3/4] bg-white rounded-lg sm:rounded-xl mb-3 sm:mb-4 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]" />
                 
                 {/* Project Info */}
                 <h3 className="font-bodoni font-bold text-white text-lg sm:text-xl uppercase tracking-wider">

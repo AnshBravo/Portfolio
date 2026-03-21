@@ -63,7 +63,7 @@ const Navbar = () => {
       
       {/* 1. SCROLL LOGO: Appears on the left on Desktop */}
      {/* 1. SCROLL LOGO: Absolute positioned so it doesn't bump the 'pill' menu */}
-<div className="hidden sm:block absolute left-4 sm:left-6 md:left-10">
+<div className=" sm:block absolute left-4 sm:left-6 md:left-10">
   <AnimatePresence>
     {showLogo && (
       <motion.div
