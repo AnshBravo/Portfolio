@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import tripNomadImage from "../assets/projects cover images/Trip Nomad.png"
+import bmiCaliImage from "../assets/projects cover images/Black & White Minimalist Business Logo.png"
+import kaizenaiImage from "../assets/projects cover images/kaizenai.png"
 
 const projects = [
-  { id: 1, title: "Project One", category: "UI/UX" },
-  { id: 2, title: "Project Two", category: "Front End" },
-  { id: 3, title: "Project Three", category: "Front End" },
-  { id: 4, title: "Project Four", category: "Front End" },
-  { id: 5, title: "Project Five", category: "Front End" },
+  { id: 1, title: "Trip Nomad", category: "Frontend", image_url: tripNomadImage, route: "/projects/tripnomad" },
+  { id: 2, title: "Kaizen AI", category: "Frontend", image_url: kaizenaiImage, route: "/projects/kaizen" },
+  { id: 3, title: "BMI Calculator", category: "Frontend", image_url: bmiCaliImage, route: "/projects/bmicali" },
 ];
 
 const Projects = () => {
@@ -43,28 +45,44 @@ const Projects = () => {
 
           {/* Project Cards Grid */}
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-7 md:gap-8 mt-12 sm:mt-16 md:mt-20">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="group cursor-pointer"
-              >
-                {/* The Card Body (White Rectangle in your Figma) */}
-                <div className="aspect-[2/1] md:aspect-[3/4] bg-white rounded-lg sm:rounded-xl mb-3 sm:mb-4 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]" />
-                
-                {/* Project Info */}
-                <h3 className="font-bodoni font-bold text-white text-lg sm:text-xl uppercase tracking-wider">
-                  {project.title}
-                </h3>
-                <p className="font-redrose text-white/40 text-xs sm:text-sm tracking-wide mt-1 sm:mt-2">
-                  {project.category}
-                </p>
-              </motion.div>
-            ))}
+            {projects.map((project, index) => {
+              const cardContent = (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  className="group cursor-pointer"
+                >
+                  {/* Image Container */}
+                  <div className="aspect-[2/1] md:aspect-[3/4] bg-zinc-900 rounded-lg sm:rounded-xl mb-3 sm:mb-4 overflow-hidden transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                    <img 
+                      src={project.image_url} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  
+                  {/* Project Info */}
+                  <h3 className="font-bodoni font-bold text-white text-lg sm:text-xl uppercase tracking-wider">
+                    {project.title}
+                  </h3>
+                  <p className="font-redrose text-white/40 text-xs sm:text-sm tracking-wide mt-1 sm:mt-2">
+                    {project.category}
+                  </p>
+                </motion.div>
+              );
+
+              return project.route ? (
+                <Link key={project.id} to={project.route} className="transition-transform duration-300 hover:-translate-y-1">
+                  {cardContent}
+                </Link>
+              ) : (
+                <div key={project.id}>{cardContent}</div>
+              );
+            })}
           </div>
         </div>
       </div>
