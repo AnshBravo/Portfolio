@@ -36,7 +36,7 @@ const HeroSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        Hey, I'm <span className="text-4xl sm:text-5xl md:text-6xl">Ansh</span>
+        I am <span className="text-4xl sm:text-5xl md:text-6xl">Ansh</span>
       </motion.h3>
       <motion.p 
         className="font-redrose text-sm sm:text-base leading-relaxed tracking-wide"
@@ -45,7 +45,7 @@ const HeroSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        Frontend Engineer. BBA Student. Calisthenics Guy
+        Frontend Developer. BBA Candidate. User-focused interface builder.
       </motion.p>
       <motion.p 
         className="font-redrose text-sm sm:text-base leading-relaxed text-white/60 first-letter:text-xl"
@@ -54,13 +54,24 @@ const HeroSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.6 }}
       >
-       Specialized in Frontend Development and obsessed with the intersection of UI/UX 
-       and brand storytelling. Whether it’s optimizing a React 
-       workflow or deploying seamless animations with Framer Motion, 
-       I build with a relentless drive for perfection. I create digital products for
-        those who value speed, precision, and a distinct visual edge.
+        I specialize in frontend development with an emphasis on responsive interfaces, component-based architecture, and accessible UI. I deliver React and Framer Motion experiences that balance performance, visual clarity, and brand consistency.
       </motion.p>
+      <div className="flex flex-col sm:flex-row gap-4 mt-6">
+        <a
+          href="mailto:anshbravo99@gmail.com"
+          className="inline-block px-6 py-3 bg-white text-black font-semibold uppercase tracking-widest transition-all duration-300 hover:bg-zinc-200"
+        >
+          Contact via email
+        </a>
+        <a
+          href="#project"
+          className="inline-block px-6 py-3 border border-white text-white font-semibold uppercase tracking-widest transition-all duration-300 hover:bg-white hover:text-black"
+        >
+          See Projects
+        </a>
+      </div>
     </div>
+
   </motion.div>
 
   {/* Column 2: Image Placeholder */}
@@ -71,7 +82,7 @@ const HeroSection = () => {
     viewport={{ once: true, amount: 0.3 }}
     transition={{ duration: 0.8, delay: 0.3 }}
   >
-    {/* This is where your image will go */}
+    {/* Replace with actual image later*/}
   </motion.div>
 
 </div>

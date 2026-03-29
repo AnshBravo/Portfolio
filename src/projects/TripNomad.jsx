@@ -39,7 +39,7 @@ const TripNomadPage = () => {
             <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Frontend / SaaS</p>
             <h2 className="font-bodoni text-4xl lg:text-5xl uppercase leading-tight">AI Guided <br/> Exploration</h2>
             <p className="text-sm text-white/60 leading-relaxed max-w-sm">
-              An intelligent travel discovery engine designed to bridge the gap between abstract 'vibes' and concrete itineraries. Built for the modern nomad.
+              A React-based travel discovery engine that translates user intent into tailored itineraries using AI-assisted prompts and responsive interface design.
             </p>
           </div>
           <a 
@@ -70,7 +70,7 @@ const TripNomadPage = () => {
         >
           <h3 className="font-bodoni text-3xl uppercase tracking-widest italic">The Narrative</h3>
           <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light">
-            I wanted to build a tool that felt less like a spreadsheet and more like a conversation. Trip Nomad uses the Gemini API to interpret user moods, turning subjective desires into actionable travel data.
+            This project was developed to transform travel planning from a data-driven process into a structured yet intuitive experience. Trip Nomad uses the Gemini API to interpret user preferences and convert them into actionable itinerary suggestions.
           </p>
         </motion.div>
 
@@ -86,7 +86,7 @@ const TripNomadPage = () => {
           <div className="space-y-6">
             <h4 className="font-bodoni text-2xl uppercase tracking-widest">Minimalist Logic</h4>
             <p className="text-sm text-white/50 leading-loose">
-              By adhering to a strict monochromatic UI, the focus remains entirely on the imagery and the AI's suggestions. The challenge was maintaining performance while orchestrating Framer Motion sequences across a multi-route application.
+              The interface emphasizes performance and clarity, using a monochrome UI and Framer Motion transitions to keep interactions seamless across routes while preserving fast load behavior.
             </p>
           </div>
         </motion.div>

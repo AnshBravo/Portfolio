@@ -27,8 +27,7 @@ const Projects = () => {
             Projects
           </h2>
           <p className="font-redrose text-black/70 text-sm sm:text-base leading-relaxed md:sticky md:top-44">
-            Welcome to my collection of work. Here you'll find projects spanning web development, 
-            UI/UX design, and creative media — each one built with intention and craft.
+            A curated selection of frontend work focused on responsive web development, user-centered design, and polished interface execution. Each project demonstrates practical React implementation, UI optimization, and accessible frontend design.
           </p>
         </motion.div>
 

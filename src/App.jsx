@@ -7,7 +7,6 @@ import Skills from './components/Skillssection';
 import Projects from './components/Projects';
 import Contact from './components/Contactme';
 import Preloader from "./components/preloader";
-import MemoryGame from './components/MemoryGame';
 
 // Import your new dedicated project pages
 import TripNomadPage from './projects/TripNomad'; 
@@ -37,39 +36,6 @@ function App() {
       <Skills />
       <Projects />
       
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        className='flex flex-col justify-center items-center m-4'
-      >
-        <button 
-          onClick={handleClick} 
-          className='px-6 py-2 bg-black border border-white w-40 mb-8 text-white font-bold rounded-full font-redrose transition-all duration-300 cursor-pointer'
-        >
-          {playGame ? 'Hide Game' : 'Play A Game'}
-        </button>
-
-        <AnimatePresence mode="wait">
-          {playGame && (
-            <motion.div
-              key="memory-game-container"
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              transition={{ 
-                duration: 0.4, 
-                type: "spring", 
-                stiffness: 200, 
-                damping: 20 
-              }}
-              className="w-full flex justify-center"
-            >
-              <MemoryGame />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
       <Contact />
     </>
   );

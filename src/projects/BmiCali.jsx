@@ -39,7 +39,7 @@ const BmiPage = () => {
             <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30">Utility / Vanilla JS Origins</p>
             <h2 className="font-bodoni text-5xl lg:text-6xl uppercase leading-[0.9]">Function <br/> Meets Form.</h2>
             <p className="text-sm text-white/50 leading-relaxed font-light">
-              Originally conceived as a logic exercise in Vanilla JavaScript, this BMI calculator was redesigned to prove that even the simplest utility can be a premium experience.
+              Originally built as a Vanilla JavaScript utility, this BMI calculator was refined into a premium interface that highlights usability and clear user feedback.
             </p>
           </div>
           
@@ -81,7 +81,7 @@ const BmiPage = () => {
           <div className="space-y-6 text-center">
             <h3 className="font-bodoni text-3xl uppercase italic tracking-widest">The Narrative</h3>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-light">
-              This project represents my first deep dive into DOM manipulation and state management. Transitioning it into my current portfolio required a complete visual overhaul to match my "Dark Vibe" brand identity.
+              This project represents an early deep dive into DOM manipulation and state management. Transitioning it into my current portfolio required a complete visual overhaul to align with a refined frontend brand identity.
             </p>
           </div>
 

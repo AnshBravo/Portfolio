@@ -26,14 +26,13 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
         >
           <p className="font-redrose text-base sm:text-lg tracking-widest">
-            Let's collaborate!
+            Let's discuss frontend development opportunities.
           </p>
           <p className="font-redrose text-sm sm:text-base leading-relaxed text-white/60">
-            I'm open to freelance UX audits, web development, voice-over work, 
-            music production gigs, or 3D modelling (Blender).
+            I am available for UI/UX design, responsive web development, React implementation, and accessibility-focused frontend work.
           </p>
           <p className="font-redrose text-sm sm:text-base tracking-wide">
-            drop me a message - happy to chat or start with a free demo
+            Contact me to discuss internship opportunities or junior frontend roles.
           </p>
         </motion.div>
 

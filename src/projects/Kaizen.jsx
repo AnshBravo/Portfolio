@@ -39,7 +39,7 @@ const KaizenAI = () => {
             <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30">AI / Productivity Engine</p>
             <h2 className="font-bodoni text-5xl lg:text-6xl uppercase leading-[0.9]">1% Better <br/> Every Day.</h2>
             <p className="text-sm text-white/50 leading-relaxed font-light">
-              Kaizen AI is a resolution-tracking ecosystem that uses machine learning to decompose massive goals into micro-habits. Built to eliminate the friction of starting.
+              Kaizen AI is a productivity platform that decomposes broad objectives into measurable micro-habits using AI-guided workflows.
             </p>
           </div>
           
@@ -73,7 +73,7 @@ const KaizenAI = () => {
           <div className="space-y-6">
             <h3 className="font-bodoni text-3xl uppercase italic tracking-widest text-center">The Narrative</h3>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed text-center font-light">
-              Most resolutions fail because they are too broad. I built Kaizen AI to act as a digital architect for personal growth—stripping away the noise and focusing on the next immediate step.
+              This application is designed to simplify habit formation through an interface that balances AI workflow logic with high-quality visual execution.
             </p>
           </div>
 

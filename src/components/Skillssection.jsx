@@ -14,7 +14,7 @@ const skills = [
   { name: "Figma", icon: figmaIcon },
   { name: "Canva", icon: canvaIcon },
   { name: "React", icon: reactIcon },
-  {name:"Tailwind", icon: tailwindIcon}
+  { name: "Tailwind CSS", icon: tailwindIcon }
 ];
 
 const Skills = () => {
@@ -25,7 +25,7 @@ const Skills = () => {
     <div id="skills" className="relative z-10 w-full bg-white px-4 sm:px-6 md:px-10 py-12 sm:py-16 md:py-20 flex flex-col items-center overflow-hidden">
       {/* Header for Tool Stack */}
       <h2 className="font-bodoni font-bold text-black text-2xl sm:text-3xl md:text-4xl mb-10 sm:mb-12 md:mb-16 tracking-widest uppercase">
-        Tool Stack
+        Technical Skills
       </h2>
 
       {/* Marquee Container */}
