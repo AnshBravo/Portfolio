@@ -1,118 +1,163 @@
-import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useNavigate, Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, ExternalLink } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import projectImg from "../assets/projects cover images/Trip Nomad.png";
 
 const TripNomadPage = () => {
   const navigate = useNavigate();
   const { scrollYProgress } = useScroll();
-  
-  // Subtle parallax for the main image
-  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.5]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.35], [1, 1.05]);
+
+  const highlights = [
+    {
+      title: "Problem",
+      copy: "Travel planning tools often overload users with data, creating friction before decision-making even starts.",
+    },
+    {
+      title: "Approach",
+      copy: "Designed a guided prompt flow where user intent translates into clear destination and itinerary recommendations.",
+    },
+    {
+      title: "Outcome",
+      copy: "A cleaner product experience with better content hierarchy and confidence-driven interactions.",
+    },
+  ];
+
+  const stack = ["React", "Framer Motion", "Gemini API", "Responsive Layout System"];
 
   return (
-    <div className="min-h-screen bg-black text-white font-redrose selection:bg-white selection:text-black">
-      
-      {/* 1. TOP NAV - FIXED */}
-      <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-8 mix-blend-difference">
-        <button 
-          onClick={() => navigate(-1)} 
-          className="text-[10px] font-black uppercase tracking-[0.4em] hover:opacity-50 transition-opacity cursor-pointer"
-        >
-          [ Back ]
-        </button>
-        <h1 className="font-bodoni text-xl md:text-2xl uppercase tracking-tighter">Trip Nomad</h1>
-        <div className="w-10" /> {/* Spacer */}
-      </nav>
-
-      {/* 2. HERO SECTION - SPLIT */}
-      <section className="relative pt-32 pb-20 px-6 md:px-10 lg:px-20 min-h-[90vh] flex flex-col md:flex-row gap-10 items-center">
-        {/* Left: Description & Link */}
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="md:w-1/3 space-y-8"
-        >
-          <div className="space-y-4">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Frontend / SaaS</p>
-            <h2 className="font-bodoni text-4xl lg:text-5xl uppercase leading-tight">AI Guided <br/> Exploration</h2>
-            <p className="text-sm text-white/60 leading-relaxed max-w-sm">
-              A React-based travel discovery engine that translates user intent into tailored itineraries using AI-assisted prompts and responsive interface design.
-            </p>
-          </div>
-          <a 
-            href="https://tripnomad.netlify.app" 
-            target="_blank" 
-            className="inline-block border border-white px-8 py-3 text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+    <div className="min-h-screen bg-[#05070d] text-white">
+      <nav className="fixed inset-x-0 top-0 z-50 bg-[#05070d]/70 backdrop-blur-xl">
+        <div className="premium-container flex items-center justify-between py-5">
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+            className="text-[11px] uppercase tracking-[0.18em] text-white/65 transition-colors hover:text-white"
           >
-            Live Preview ↗
-          </a>
-        </motion.div>
-
-        {/* Right: Image */}
-        <motion.div 
-          style={{ scale: imageScale }}
-          className="md:w-2/3 h-[500px] md:h-[600px] overflow-hidden rounded-2xl border border-white/10"
-        >
-          <img src={projectImg} alt="Trip Nomad" className="w-full h-full object-cover" />
-        </motion.div>
-      </section>
-
-      {/* 3. THE STORY - SCROLL ANIMATED */}
-      <section className="px-6 md:px-20 py-32 space-y-32">
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto text-center space-y-6"
-        >
-          <h3 className="font-bodoni text-3xl uppercase tracking-widest italic">The Narrative</h3>
-          <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light">
-            This project was developed to transform travel planning from a data-driven process into a structured yet intuitive experience. Trip Nomad uses the Gemini API to interpret user preferences and convert them into actionable itinerary suggestions.
-          </p>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center"
-        >
-          <div className="h-[400px] bg-white/5 rounded-2xl border border-white/5 flex items-center justify-center italic text-white/20">
-            [ Interactive Demo Clip or Detail Image ]
-          </div>
-          <div className="space-y-6">
-            <h4 className="font-bodoni text-2xl uppercase tracking-widest">Minimalist Logic</h4>
-            <p className="text-sm text-white/50 leading-loose">
-              The interface emphasizes performance and clarity, using a monochrome UI and Framer Motion transitions to keep interactions seamless across routes while preserving fast load behavior.
-            </p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* 4. FOOTER / CTA */}
-      <footer className="px-6 py-32 border-t border-white/10 bg-[#050505]">
-        <div className="max-w-5xl mx-auto flex flex-col items-center text-center space-y-12">
-          <h2 className="font-bodoni text-5xl md:text-7xl uppercase tracking-tighter">Ready to Build?</h2>
-          
-          <div className="flex flex-col md:flex-row gap-6">
-            <a 
-              href="mailto:anshabravo@brand.com" 
-              className="px-12 py-4 bg-white text-black font-black uppercase text-xs tracking-[0.2em] hover:bg-zinc-200 transition-colors"
+            ← Back to Home
+          </button>
+          <div className="hidden items-center gap-6 sm:flex">
+            <a
+              href="https://tripnomad.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-white"
             >
-              Contact Me
+              Live site
+              <ExternalLink size={13} />
             </a>
-            <Link 
-              to="/#project" 
-              className="px-12 py-4 border border-white text-white font-black uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-black transition-colors"
+            <Link
+              to="/projects/kaizen"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-white"
             >
-              Other Projects
+              Next project
+              <ArrowRight size={13} />
             </Link>
           </div>
         </div>
-      </footer>
+      </nav>
+
+      <main className="premium-container space-y-18 pb-20 pt-30 sm:space-y-20 sm:pt-34">
+        <section className="grid items-center gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="space-y-5"
+          >
+            <p className="section-eyebrow">Travel Tech · Product Case Study</p>
+            <h1 className="font-display text-4xl leading-tight text-white sm:text-5xl">Trip Nomad</h1>
+            <p className="section-copy">
+              Trip Nomad is an AI-powered travel assistant built to simplify planning. The product converts loose user
+              preferences into structured destination options and practical itinerary suggestions.
+            </p>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                <p className="text-xs uppercase tracking-[0.16em] text-white/50">Role</p>
+                <p className="mt-2 text-sm text-white/85">Frontend Development · UX Structuring · Motion Design</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                <p className="text-xs uppercase tracking-[0.16em] text-white/50">Goal</p>
+                <p className="mt-2 text-sm text-white/85">Reduce planning friction and improve decision confidence.</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div style={{ y: imageY, scale: imageScale }} className="glass-card overflow-hidden p-3 sm:p-4">
+            <img
+              src={projectImg}
+              alt="Trip Nomad project preview"
+              className="h-[360px] w-full rounded-2xl object-cover sm:h-[460px]"
+            />
+          </motion.div>
+        </section>
+
+        <section className="grid gap-4 md:grid-cols-3">
+          {highlights.map((item, index) => (
+            <motion.article
+              key={item.title}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className="glass-card p-5"
+            >
+              <p className="section-eyebrow">{item.title}</p>
+              <p className="mt-3 text-sm text-white/80">{item.copy}</p>
+            </motion.article>
+          ))}
+        </section>
+
+        <section className="glass-card p-6 sm:p-8">
+          <div className="grid gap-7 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
+              <p className="section-eyebrow">Execution details</p>
+              <h2 className="mt-3 font-display text-3xl text-white sm:text-4xl">From intent to itinerary in a focused UI.</h2>
+              <p className="mt-4 text-sm text-white/75 sm:text-base">
+                The interface architecture prioritizes readability and progressive disclosure. Each interaction step
+                reveals only the information users need, helping them move from curiosity to action without cognitive
+                overload.
+              </p>
+            </div>
+
+            <div>
+              <p className="section-eyebrow">Technology stack</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {stack.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/20 bg-white/[0.05] px-3 py-1 text-xs uppercase tracking-[0.12em] text-white/80"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="soft-divider my-7" />
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a
+              href="https://tripnomad.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Visit Live Project
+              <ExternalLink size={15} />
+            </a>
+            <Link to="/projects/kaizen" className="btn-secondary">
+              Next: Kaizen AI
+              <ArrowRight size={15} />
+            </Link>
+            <a href="/#project" className="btn-secondary">
+              Back to all projects
+            </a>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };

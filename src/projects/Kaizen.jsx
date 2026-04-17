@@ -1,125 +1,162 @@
-import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useNavigate, Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, ExternalLink } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import kaizenImg from "../assets/projects cover images/kaizenai.png";
 
 const KaizenAI = () => {
   const navigate = useNavigate();
   const { scrollYProgress } = useScroll();
-  
-  // Scroll animations for the story section
-  const textY = useTransform(scrollYProgress, [0.3, 0.6], [100, 0]);
-  const textOpacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, -70]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.35], [1, 1.05]);
+
+  const highlights = [
+    {
+      title: "Vision",
+      copy: "Transform broad ambitions into practical daily actions using a focused AI-assisted workflow.",
+    },
+    {
+      title: "UX principle",
+      copy: "Maintain a clean interaction canvas so users stay oriented while processing rich productivity data.",
+    },
+    {
+      title: "Delivery",
+      copy: "A motion-enhanced React interface that balances motivation, clarity, and consistent visual hierarchy.",
+    },
+  ];
+
+  const stack = ["React", "Tailwind CSS", "Framer Motion", "Habit Loop UX"];
 
   return (
-    <div className="min-h-screen bg-black text-white font-redrose selection:bg-white selection:text-black">
-      
-      {/* 1. TOP NAV */}
-      <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-8 mix-blend-difference">
-        <button 
-          onClick={() => navigate("/")} 
-          className="text-[10px] font-black uppercase tracking-[0.4em] hover:text-zinc-400 transition-colors cursor-pointer"
-        >
-          [ Back ]
-        </button>
-        <h1 className="font-bodoni text-xl md:text-2xl uppercase tracking-tighter">Kaizen AI</h1>
-        <div className="w-10" />
+    <div className="min-h-screen bg-[#05070d] text-white">
+      <nav className="fixed inset-x-0 top-0 z-50 bg-[#05070d]/70 backdrop-blur-xl">
+        <div className="premium-container flex items-center justify-between py-5">
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+            className="text-[11px] uppercase tracking-[0.18em] text-white/65 transition-colors hover:text-white"
+          >
+            ← Back to Home
+          </button>
+          <div className="hidden items-center gap-6 sm:flex">
+            <a
+              href="https://aikaizen.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-white"
+            >
+              Live site
+              <ExternalLink size={13} />
+            </a>
+            <Link
+              to="/projects/bmicali"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-white"
+            >
+              Next project
+              <ArrowRight size={13} />
+            </Link>
+          </div>
+        </div>
       </nav>
 
-      {/* 2. HERO SECTION - SPLIT LAYOUT */}
-      <section className="relative pt-32 pb-20 px-6 md:px-10 lg:px-20 min-h-[90vh] flex flex-col md:flex-row gap-12 items-center">
-        {/* Left: Description & Link */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="md:w-1/2 lg:w-1/3 space-y-8"
-        >
-          <div className="space-y-4">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30">AI / Productivity Engine</p>
-            <h2 className="font-bodoni text-5xl lg:text-6xl uppercase leading-[0.9]">1% Better <br/> Every Day.</h2>
-            <p className="text-sm text-white/50 leading-relaxed font-light">
-              Kaizen AI is a productivity platform that decomposes broad objectives into measurable micro-habits using AI-guided workflows.
-            </p>
-          </div>
-          
-          <a 
-            href="https://aikaizen.netlify.app" 
-            target="_blank" 
-            rel="noreferrer"
-            className="inline-block border border-white px-10 py-4 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-500"
+      <main className="premium-container space-y-18 pb-20 pt-30 sm:space-y-20 sm:pt-34">
+        <section className="grid items-center gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="space-y-5"
           >
-            Launch Prototype ↗
-          </a>
-        </motion.div>
-
-        {/* Right: Image */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="md:w-1/2 lg:w-2/3 h-[450px] md:h-[650px] overflow-hidden rounded-sm border border-white/5 grayscale hover:grayscale-0 transition-all duration-700"
-        >
-          <img src={kaizenImg} alt="Kaizen AI Interface" className="w-full h-full object-cover" />
-        </motion.div>
-      </section>
-
-      {/* 3. THE STORY - SCROLL ANIMATED */}
-      <section className="px-6 md:px-20 py-40 bg-[#050505]">
-        <motion.div 
-          style={{ y: textY, opacity: textOpacity }}
-          className="max-w-3xl mx-auto space-y-24"
-        >
-          <div className="space-y-6">
-            <h3 className="font-bodoni text-3xl uppercase italic tracking-widest text-center">The Narrative</h3>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed text-center font-light">
-              This application is designed to simplify habit formation through an interface that balances AI workflow logic with high-quality visual execution.
+            <p className="section-eyebrow">AI Productivity · Product Case Study</p>
+            <h1 className="font-display text-4xl leading-tight text-white sm:text-5xl">Kaizen AI</h1>
+            <p className="section-copy">
+              Kaizen AI helps users convert big goals into repeatable micro-habits. The interface is designed to keep
+              progress visible and reduce friction in daily planning.
             </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pt-20 border-t border-white/5">
-            <div className="space-y-4">
-              <h4 className="font-bodoni text-xl uppercase tracking-widest">The Challenge</h4>
-              <p className="text-sm text-white/40 leading-loose">
-                Balancing complex AI data processing with a "Dark Vibe" aesthetic that doesn't feel cluttered. I had to ensure the UI remained dead-simple while the backend handled habit-loop logic.
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                <p className="text-xs uppercase tracking-[0.16em] text-white/50">Role</p>
+                <p className="mt-2 text-sm text-white/85">Frontend Development · Product UX · Motion System</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                <p className="text-xs uppercase tracking-[0.16em] text-white/50">Objective</p>
+                <p className="mt-2 text-sm text-white/85">Build sustained user momentum through clear, encouraging UX.</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div style={{ y: imageY, scale: imageScale }} className="glass-card overflow-hidden p-3 sm:p-4">
+            <img
+              src={kaizenImg}
+              alt="Kaizen AI interface preview"
+              className="h-[360px] w-full rounded-2xl object-cover sm:h-[460px]"
+            />
+          </motion.div>
+        </section>
+
+        <section className="grid gap-4 md:grid-cols-3">
+          {highlights.map((item, index) => (
+            <motion.article
+              key={item.title}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className="glass-card p-5"
+            >
+              <p className="section-eyebrow">{item.title}</p>
+              <p className="mt-3 text-sm text-white/80">{item.copy}</p>
+            </motion.article>
+          ))}
+        </section>
+
+        <section className="glass-card p-6 sm:p-8">
+          <div className="grid gap-7 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
+              <p className="section-eyebrow">Execution details</p>
+              <h2 className="mt-3 font-display text-3xl text-white sm:text-4xl">Designed for consistency and reward loops.</h2>
+              <p className="mt-4 text-sm text-white/75 sm:text-base">
+                This build focused on reducing cognitive load while preserving motivation. Typography hierarchy,
+                contrast, and pacing were tuned to support frequent user interaction without visual fatigue.
               </p>
             </div>
-            <div className="space-y-4">
-              <h4 className="font-bodoni text-xl uppercase tracking-widest">The Outcome</h4>
-              <p className="text-sm text-white/40 leading-loose">
-                A high-performance React application that utilizes Framer Motion for organic transitions, making the act of completing a task feel as rewarding as the goal itself.
-              </p>
+
+            <div>
+              <p className="section-eyebrow">Technology stack</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {stack.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/20 bg-white/[0.05] px-3 py-1 text-xs uppercase tracking-[0.12em] text-white/80"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
-        </motion.div>
-      </section>
 
-      {/* 4. CTA / OTHER PROJECTS */}
-      <footer className="py-40 px-6 flex flex-col items-center justify-center text-center space-y-16 border-t border-white/5">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="space-y-4"
-        >
-          <h2 className="font-bodoni text-6xl md:text-8xl uppercase tracking-tighter">Next Chapter</h2>
-          <p className="text-white/30 uppercase tracking-[0.5em] text-[10px]">What shall we build together?</p>
-        </motion.div>
-
-        <div className="flex flex-col sm:flex-row gap-6">
-          <Link 
-            to="/project/trip-nomad" 
-            className="px-16 py-5 border border-white/20 text-white text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all"
-          >
-            View Trip Nomad
-          </Link>
-          <Link 
-            to="/#project" 
-            className="px-16 py-5 bg-white text-black text-[10px] font-black uppercase tracking-widest hover:bg-zinc-200 transition-all"
-          >
-            All Projects
-          </Link>
-        </div>
-      </footer>
+          <div className="soft-divider my-7" />
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a
+              href="https://aikaizen.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Visit Live Project
+              <ExternalLink size={15} />
+            </a>
+            <Link to="/projects/bmicali" className="btn-secondary">
+              Next: BMI Calculator
+              <ArrowRight size={15} />
+            </Link>
+            <a href="/#project" className="btn-secondary">
+              Back to all projects
+            </a>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };
