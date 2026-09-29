@@ -3,9 +3,9 @@ import { ArrowDownRight, Sparkles } from "lucide-react";
 import logoPng from "../assets/Ansh Bravo Brand logo/black-brand-logo.png";
 
 const stats = [
-  { value: "React + Framer Motion", label: "Primary build stack" },
-  { value: "Design-to-Code", label: "Product-oriented workflow" },
-  { value: "Accessibility First", label: "Usability-driven implementation" },
+  { value: "3 Live Products", label: "Shipped to production" },
+  { value: "Full-Stack + AI", label: "React, PostgreSQL, Gemini" },
+  { value: "Real-Time UX", label: "Socket.IO state sync" },
 ];
 
 const HeroSection = () => {
@@ -38,9 +38,9 @@ const HeroSection = () => {
                 Crafting <span className="text-gradient">high-impact digital interfaces</span> for brands and products.
               </h1>
               <p className="section-copy max-w-2xl text-base sm:text-lg">
-                I&apos;m Ansh Bravo, a frontend developer focused on translating product goals into high-performance,
-                conversion-friendly web experiences. I blend React architecture, motion systems, and clean UX logic to
-                create interfaces people enjoy using.
+                I&apos;m Ansh Bravo, a developer focused on translating product goals into high-performance web
+                experiences. From AI-powered travel planning to real-time collaborative workspaces, I blend React
+                architecture, full-stack data flows, and clean UX logic to ship products people enjoy using.
               </p>
             </div>
 

@@ -21,6 +21,7 @@ const workflows = [
   "Responsive UI Systems",
   "Component Architecture",
   "Motion Design with Framer Motion",
+  "Real-Time Apps & AI Integrations",
   "Wireframe to Production Handoff",
   "Accessibility and Performance Audits",
 ];
