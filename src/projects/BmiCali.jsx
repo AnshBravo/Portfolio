@@ -1,30 +1,30 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import projectImg from "../assets/projects cover images/Trip Nomad.png";
+import bmiImg from "../assets/projects cover images/Black & White Minimalist Business Logo.png";
 
-const TripNomadPage = () => {
+const BmiPage = () => {
   const navigate = useNavigate();
   const { scrollYProgress } = useScroll();
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.35], [1, 1.05]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.35], [1, 1.04]);
 
   const highlights = [
     {
-      title: "Problem",
-      copy: "Travel planning tools often overload users with data, creating friction before decision-making even starts.",
+      title: "Foundation",
+      copy: "Originally developed as a Vanilla JavaScript utility to practice DOM logic and real-time calculation flow.",
     },
     {
-      title: "Approach",
-      copy: "Designed a guided prompt flow where user intent translates into clear destination and itinerary recommendations.",
+      title: "Refinement",
+      copy: "Redesigned into a cleaner interface with better spacing, hierarchy, and responsive behavior across viewports.",
     },
     {
-      title: "Outcome",
-      copy: "A cleaner product experience with better content hierarchy and confidence-driven interactions.",
+      title: "Value",
+      copy: "Demonstrates product-minded transformation from functional prototype to polished user-facing tool.",
     },
   ];
 
-  const stack = ["React", "Framer Motion", "Gemini API", "Responsive Layout System"];
+  const stack = ["JavaScript", "Responsive UI", "Input Validation", "Interaction Design"];
 
   return (
     <div className="min-h-screen bg-[#05070d] text-white">
@@ -39,7 +39,7 @@ const TripNomadPage = () => {
           </button>
           <div className="hidden items-center gap-6 sm:flex">
             <a
-              href="https://tripnomad.netlify.app"
+              href="https://bmicali.netlify.app"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-white"
@@ -48,7 +48,7 @@ const TripNomadPage = () => {
               <ExternalLink size={13} />
             </a>
             <Link
-              to="/projects/kaizen"
+              to="/projects/tripnomad"
               className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-white"
             >
               Next project
@@ -66,29 +66,29 @@ const TripNomadPage = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="space-y-5"
           >
-            <p className="section-eyebrow">Travel Tech · Product Case Study</p>
-            <h1 className="font-display text-4xl leading-tight text-white sm:text-5xl">Trip Nomad</h1>
+            <p className="section-eyebrow">Health Utility · Product Case Study</p>
+            <h1 className="font-display text-4xl leading-tight text-white sm:text-5xl">BMI Calculator</h1>
             <p className="section-copy">
-              Trip Nomad is an AI-powered travel assistant built to simplify planning. The product converts loose user
-              preferences into structured destination options and practical itinerary suggestions.
+              This project began as a core JavaScript exercise and evolved into a more polished product interface. The
+              redesign emphasizes clarity, trust, and efficient interaction.
             </p>
 
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                 <p className="text-xs uppercase tracking-[0.16em] text-white/50">Role</p>
-                <p className="mt-2 text-sm text-white/85">Frontend Development · UX Structuring · Motion Design</p>
+                <p className="mt-2 text-sm text-white/85">Frontend Development · UX Redesign · Visual Direction</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-                <p className="text-xs uppercase tracking-[0.16em] text-white/50">Goal</p>
-                <p className="mt-2 text-sm text-white/85">Reduce planning friction and improve decision confidence.</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-white/50">Objective</p>
+                <p className="mt-2 text-sm text-white/85">Convert a simple utility into a confident, modern experience.</p>
               </div>
             </div>
           </motion.div>
 
           <motion.div style={{ y: imageY, scale: imageScale }} className="glass-card overflow-hidden p-3 sm:p-4">
             <img
-              src={projectImg}
-              alt="Trip Nomad project preview"
+              src={bmiImg}
+              alt="BMI Calculator project preview"
               className="h-[360px] w-full rounded-2xl object-cover sm:h-[460px]"
             />
           </motion.div>
@@ -114,11 +114,10 @@ const TripNomadPage = () => {
           <div className="grid gap-7 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
               <p className="section-eyebrow">Execution details</p>
-              <h2 className="mt-3 font-display text-3xl text-white sm:text-4xl">From intent to itinerary in a focused UI.</h2>
+              <h2 className="mt-3 font-display text-3xl text-white sm:text-4xl">From utility script to polished product surface.</h2>
               <p className="mt-4 text-sm text-white/75 sm:text-base">
-                The interface architecture prioritizes readability and progressive disclosure. Each interaction step
-                reveals only the information users need, helping them move from curiosity to action without cognitive
-                overload.
+                The redesign focused on cleaner input flow, stronger typographic hierarchy, and deliberate spacing.
+                Even simple tools benefit from premium UX when users need immediate confidence in outputs.
               </p>
             </div>
 
@@ -140,7 +139,7 @@ const TripNomadPage = () => {
           <div className="soft-divider my-7" />
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
-              href="https://tripnomad.netlify.app"
+              href="https://bmicali.netlify.app"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
@@ -148,8 +147,8 @@ const TripNomadPage = () => {
               Visit Live Project
               <ExternalLink size={15} />
             </a>
-            <Link to="/projects/kaizen" className="btn-secondary">
-              Next: Kaizen AI
+            <Link to="/projects/tripnomad" className="btn-secondary">
+              Next: Trip Nomad
               <ArrowRight size={15} />
             </Link>
             <a href="/#project" className="btn-secondary">
@@ -162,4 +161,4 @@ const TripNomadPage = () => {
   );
 };
 
-export default TripNomadPage;
+export default BmiPage;
