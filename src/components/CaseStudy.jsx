@@ -40,7 +40,7 @@ const CaseStudy = ({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-white"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-black transition-colors hover:text-white"
             >
               Live site
               <ExternalLink size={13} />
@@ -67,16 +67,28 @@ const CaseStudy = ({
             className="space-y-5"
           >
             <p className="section-eyebrow">{eyebrow}</p>
-            <h1 className="font-display text-4xl leading-tight text-white sm:text-5xl">{title}</h1>
+            <h1 className="font-display text-4xl leading-tight text-white sm:text-5xl">
+              {title}
+            </h1>
             <p className="section-copy">{summary}</p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-black!"
+              >
                 Visit Live Project
                 <ExternalLink size={15} />
               </a>
               {sourceUrl && (
-                <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                <a
+                  href={sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary"
+                >
                   <Github size={15} />
                   GitHub
                 </a>
@@ -86,8 +98,13 @@ const CaseStudy = ({
             {facts.length > 0 && (
               <div className="grid gap-3 sm:grid-cols-2">
                 {facts.map((fact) => (
-                  <div key={fact.label} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-                    <p className="text-xs uppercase tracking-[0.16em] text-white/50">{fact.label}</p>
+                  <div
+                    key={fact.label}
+                    className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                  >
+                    <p className="text-xs uppercase tracking-[0.16em] text-white/50">
+                      {fact.label}
+                    </p>
                     <p className="mt-2 text-sm text-white/85">{fact.value}</p>
                   </div>
                 ))}
@@ -111,7 +128,9 @@ const CaseStudy = ({
                 {liveUrl.replace(/^https?:\/\//, "")}
               </span>
             </div>
-            <div className={`overflow-hidden rounded-2xl ${imageFrameClassName}`}>
+            <div
+              className={`overflow-hidden rounded-2xl ${imageFrameClassName}`}
+            >
               <img
                 src={image}
                 alt={imageAlt}
@@ -163,8 +182,12 @@ const CaseStudy = ({
                       </span>
                     )}
                     <div>
-                      <h3 className="text-base font-semibold text-white">{feature.title}</h3>
-                      <p className="mt-2 text-sm text-white/70">{feature.copy}</p>
+                      <h3 className="text-base font-semibold text-white">
+                        {feature.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-white/70">
+                        {feature.copy}
+                      </p>
                     </div>
                   </motion.article>
                 );
@@ -177,8 +200,12 @@ const CaseStudy = ({
           <div className="grid gap-7 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
               <p className="section-eyebrow">Execution details</p>
-              <h2 className="mt-3 font-display text-3xl text-white sm:text-4xl">{detailTitle}</h2>
-              <p className="mt-4 text-sm text-white/75 sm:text-base">{detailCopy}</p>
+              <h2 className="mt-3 font-display text-3xl text-white sm:text-4xl">
+                {detailTitle}
+              </h2>
+              <p className="mt-4 text-sm text-white/75 sm:text-base">
+                {detailCopy}
+              </p>
             </div>
 
             <div>
@@ -198,7 +225,12 @@ const CaseStudy = ({
 
           <div className="soft-divider my-7" />
           <div className="flex flex-col gap-3 sm:flex-row">
-            <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary text-black!"
+            >
               Visit Live Project
               <ExternalLink size={15} />
             </a>

@@ -16,11 +16,14 @@ const Projects = () => {
         >
           <div className="max-w-2xl">
             <p className="section-eyebrow">Selected Work</p>
-            <h2 className="section-title mt-3">Case studies shipped to production.</h2>
+            <h2 className="section-title mt-3">
+              Case studies shipped to production.
+            </h2>
           </div>
           <p className="section-copy max-w-md">
-            Full-stack web applications and interactive platforms covering real-time sync, AI integrations,
-            PostgreSQL data modeling, and polished interfaces. Every project is live.
+            Full-stack web applications and interactive platforms covering
+            real-time sync, AI integrations, PostgreSQL data modeling, and
+            polished interfaces. Every project is live.
           </p>
         </motion.div>
 
@@ -52,9 +55,15 @@ const Projects = () => {
               </Link>
 
               <div className="flex flex-1 flex-col px-3 pb-3 pt-5">
-                <p className="text-[11px] uppercase tracking-[0.18em] text-white/50">{project.category}</p>
-                <h3 className="mt-2 font-display text-2xl text-white">{project.title}</h3>
-                <p className="mt-3 text-sm text-white/70">{project.description}</p>
+                <p className="text-[11px] uppercase tracking-[0.18em] text-white/50">
+                  {project.category}
+                </p>
+                <h3 className="mt-2 font-display text-2xl text-white">
+                  {project.title}
+                </h3>
+                <p className="mt-3 text-sm text-white/70">
+                  {project.description}
+                </p>
 
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
@@ -68,7 +77,10 @@ const Projects = () => {
                 </div>
 
                 <div className="mt-auto flex items-center gap-2 pt-6">
-                  <Link to={project.route} className="btn-secondary flex-1 px-4! py-2.5! text-xs!">
+                  <Link
+                    to={project.route}
+                    className="btn-secondary flex-1 px-4! py-2.5! text-xs!"
+                  >
                     Case study
                     <ArrowRight size={14} />
                   </Link>
@@ -76,7 +88,7 @@ const Projects = () => {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary flex-1 px-4! py-2.5! text-xs!"
+                    className="btn-primary text-black! flex-1 px-4! py-2.5! text-xs!"
                   >
                     Live site
                     <ArrowUpRight size={14} />
