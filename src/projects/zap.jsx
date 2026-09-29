@@ -1,4 +1,11 @@
-import { Gauge, RefreshCw, ShieldCheck, Zap } from "lucide-react";
+import {
+  MessageSquare,
+  CloudUpload,
+  ShieldCheck,
+  Database,
+  Radio,
+  Sparkles,
+} from "lucide-react";
 import CaseStudy from "../components/CaseStudy";
 import { getNextProject, getProject } from "../data/projects";
 
@@ -7,57 +14,74 @@ const project = getProject("zap");
 const ZapPage = () => (
   <CaseStudy
     title={project.title}
-    eyebrow="Full-Stack · High-Performance Platform"
-    summary="Zap is a high-throughput full-stack web application built for real-time task workflows, responsive state synchronization, and a seamless user experience from the first click."
+    eyebrow="Full-Stack · Social Networking Platform"
+    summary="Zap is a full-stack social networking application engineered for real-time messaging, instant notifications, and direct cloud media uploads with optimized relational data modeling."
     liveUrl={project.liveUrl}
     sourceUrl="https://github.com/anshbravo"
     image={project.image}
-    imageAlt="Zap platform logo"
+    imageAlt="Zap platform preview"
     imageClassName={project.imageClassName}
     imageFrameClassName={project.imageFrameClassName}
     facts={[
-      { label: "Role", value: "Full-Stack Development · UI Engineering" },
-      { label: "Deployment", value: "Vercel edge & serverless infrastructure" },
+      { label: "Role", value: "Full-Stack Engineer · System Architecture" },
+      {
+        label: "Architecture",
+        value: "PERN Stack (PostgreSQL, Express, React, Node) + TypeScript",
+      },
+      {
+        label: "Deployment",
+        value: "Vercel Client & Express/Node Web Service",
+      },
     ]}
     highlights={[
       {
         title: "Problem",
-        copy: "Workflow tools often feel sluggish, with laggy updates and heavy interfaces that interrupt focus.",
+        copy: "Traditional social web feeds suffer from high server processing overhead during image uploads, sluggish page refreshes, and delayed user notifications.",
       },
       {
         title: "Approach",
-        copy: "Built a lean client with optimized API requests, client-side caching, and instant optimistic UI feedback.",
+        copy: "Implemented an S3 presigned URL pipeline for direct client-to-cloud media uploads, Socket.IO for duplex communication, and indexed PostgreSQL queries via Prisma ORM.",
       },
       {
         title: "Outcome",
-        copy: "A fast, dependable platform that stays responsive under load and keeps navigation fluid.",
+        copy: "A performant social platform with instant messaging, live notification feeds, secure token authentication, and optimized paginated query responses.",
       },
     ]}
     features={[
       {
-        icon: Zap,
-        title: "Instant interactions",
-        copy: "Optimistic updates and lightweight components keep every action feeling immediate.",
+        icon: Radio,
+        title: "Real-Time Socket.IO Engine",
+        copy: "Powers instant 1-on-1 messaging, live user online/offline status indicators, and instant notification alerts.",
       },
       {
-        icon: RefreshCw,
-        title: "Real-time state sync",
-        copy: "Data stays consistent between client and server without manual refreshes.",
+        icon: CloudUpload,
+        title: "Direct AWS S3 Pipeline",
+        copy: "Utilizes AWS SDK presigned URLs allowing client browsers to upload media directly to S3, bypassing application server memory limits.",
       },
       {
-        icon: Gauge,
-        title: "Performance-first build",
-        copy: "Client-side caching and fast hydration minimize load times and wasted requests.",
+        icon: Database,
+        title: "PostgreSQL & Prisma ORM",
+        copy: "Relational schema design supporting follower networks, post interactions (likes, comments), and paginated feed indexing.",
       },
       {
         icon: ShieldCheck,
-        title: "Secure by default",
-        copy: "Authenticated sessions and CSRF protection guard every user-facing operation.",
+        title: "JWT & HTTP-Only Auth",
+        copy: "Secure token-based authentication paired with custom authorization middleware protecting API routes and websocket connections.",
       },
     ]}
-    stack={["React", "Tailwind CSS", "Framer Motion", "Serverless APIs", "Vercel"]}
-    detailTitle="Low latency, resilient by design."
-    detailCopy="Engineered with a focus on fluid client-server interaction, Zap uses modern full-stack patterns to deliver real-time updates with instant UI responsiveness and resilient error handling, so concurrent operations never block the user."
+    stack={[
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Prisma ORM",
+      "Socket.IO",
+      "AWS S3",
+      "Tailwind CSS",
+    ]}
+    detailTitle="High concurrency, direct cloud delivery."
+    detailCopy="Designed with a modular layered architecture, Zap decouples media transport from application processing through AWS S3 presigned endpoints. WebSockets maintain persistent duplex connections for real-time engagement while Prisma manages relational integrity across posts, interactions, and user profiles."
     next={getNextProject("zap")}
   />
 );

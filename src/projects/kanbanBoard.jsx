@@ -1,4 +1,11 @@
-import { Bot, Layers, MousePointerClick, Radio } from "lucide-react";
+import {
+  Bot,
+  Layers,
+  MousePointerClick,
+  Radio,
+  ShieldCheck,
+  Calendar,
+} from "lucide-react";
 import CaseStudy from "../components/CaseStudy";
 import { getNextProject, getProject } from "../data/projects";
 
@@ -7,57 +14,71 @@ const project = getProject("organizly");
 const OrganizlyPage = () => (
   <CaseStudy
     title={project.title}
-    eyebrow="Collaborative Workspace · Real-Time Systems"
-    summary="Organizly is an AI-powered, real-time Kanban platform engineered with multi-tenant board authorization, drag-and-drop fractional positioning, and Socket.IO synchronization."
+    eyebrow="Full-Stack · AI Kanban Workspace"
+    summary="Organizly is an AI-powered, real-time collaborative Kanban workspace engineered with O(1) fractional reordering, multi-tenant RBAC authorization, and Google Gemini task decomposition."
     liveUrl={project.liveUrl}
     sourceUrl="https://github.com/anshbravo"
     image={project.image}
-    imageAlt="Organizly workspace illustration"
+    imageAlt="Organizly workspace interface preview"
     imageClassName={project.imageClassName}
     imageFrameClassName={project.imageFrameClassName}
     facts={[
-      { label: "Role", value: "Full-Stack Development · Data Modeling · UX" },
-      { label: "AI", value: "Gemini-powered task breakdown and sprint risk insights" },
+      { label: "Role", value: "Full-Stack Engineer · System Architecture" },
+      {
+        label: "Architecture",
+        value: "PERN Stack (PostgreSQL, Express, React, Node) + TypeScript",
+      },
+      { label: "AI Integration", value: "Google Gemini SDK API" },
     ]}
     highlights={[
       {
         title: "Problem",
-        copy: "Teams lose momentum when boards drift out of sync and large tasks sit unplanned.",
+        copy: "Collaborative project boards suffer from laggy drag-and-drop state updates, heavy O(N) database index re-writes when moving tasks, and slow task planning overhead.",
       },
       {
         title: "Approach",
-        copy: "Combined live WebSocket updates with AI that decomposes work into actionable subtasks.",
+        copy: "Engineered floating-point fractional positioning for O(1) card positioning, integrated Google Gemini for automated goal decomposition, and connected Socket.IO for live board state sync.",
       },
       {
         title: "Outcome",
-        copy: "A shared workspace where every change appears instantly and planning takes seconds.",
+        copy: "A performant, multi-user workspace featuring role-based board permissions, automated AI sprint planning, real-time card transitions, and audit activity trails.",
       },
     ]}
     features={[
       {
-        icon: Radio,
-        title: "Live collaboration",
-        copy: "Socket.IO keeps every board, card, and comment in sync across all connected teammates.",
-      },
-      {
         icon: MousePointerClick,
-        title: "O(1) drag-and-drop",
-        copy: "Fractional indexing reorders cards without recalculating the positions of the whole list.",
+        title: "O(1) Fractional Positioning",
+        copy: "Reorders cards and columns using floating-point indices, enabling instant drag-and-drop without $O(N)$ database index update rewrites.",
       },
       {
         icon: Bot,
-        title: "AI task decomposition",
-        copy: "Gemini generates subtasks and flags sprint risks so planning stays ahead of delivery.",
+        title: "Gemini AI Task Breakdown",
+        copy: "Parses high-level user prompt goals and automatically generates structured subtask checklists, estimated effort, and sprint risks.",
       },
       {
-        icon: Layers,
-        title: "RBAC & audit trail",
-        copy: "Granular role permissions, an activity log, calendar views, and a global command palette.",
+        icon: Radio,
+        title: "Real-Time WebSocket Sync",
+        copy: "Socket.IO synchronizes column moves, status updates, card details, and comments instantly across all connected workspace members.",
+      },
+      {
+        icon: ShieldCheck,
+        title: "RBAC & Secure Audit Trail",
+        copy: "Implements Role-Based Access Control middleware for workspace permissions alongside activity tracking logs and calendar views.",
       },
     ]}
-    stack={["React", "PostgreSQL", "Socket.IO", "Gemini API", "RBAC Middleware"]}
-    detailTitle="Relational data meets real-time sync."
-    detailCopy="Organizly pairs PostgreSQL relational modeling with low-latency WebSockets for instantaneous task coordination, while fractional positioning makes reordering cards cheap and conflict-free during drag-and-drop."
+    stack={[
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Prisma ORM",
+      "Socket.IO",
+      "Google Gemini API",
+      "Tailwind CSS",
+    ]}
+    detailTitle="Relational precision, AI automation, real-time scale."
+    detailCopy="Built with modular layered REST APIs and Prisma ORM, Organizly handles complex relational modeling across users, teams, boards, and subtask checklists. The combination of fractional positioning algorithms and Socket.IO real-time events ensures zero-latency user interaction even during heavy multi-user concurrent board editing."
     next={getNextProject("organizly")}
   />
 );
