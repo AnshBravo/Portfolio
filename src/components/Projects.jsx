@@ -8,23 +8,23 @@ const projects = [
   {
     id: 1,
     title: "Trip Nomad",
-    category: "Frontend",
+    category: "Frontend // Travel Platform",
     image_url: tripNomadImage,
     route: "/projects/tripnomad",
   },
   {
     id: 2,
-    title: "Kaizen AI",
-    category: "Frontend",
+    title: "Zap",
+    category: "Full-Stack // High-Performance Platform",
     image_url: kaizenaiImage,
-    route: "/projects/kaizen",
+    route: "/projects/zap",
   },
   {
     id: 3,
-    title: "BMI Calculator",
-    category: "Frontend",
+    title: "Organizly",
+    category: "Full-Stack // AI Kanban Workspace",
     image_url: bmiCaliImage,
-    route: "/projects/bmicali",
+    route: "/projects/organizly",
   },
 ];
 
@@ -47,10 +47,10 @@ const Projects = () => {
             Projects
           </h2>
           <p className="font-redrose text-black/70 text-sm sm:text-base leading-relaxed md:sticky md:top-44">
-            A curated selection of frontend work focused on responsive web
-            development, user-centered design, and polished interface execution.
-            Each project demonstrates practical React implementation, UI
-            optimization, and accessible frontend design.
+            A curated selection of modern full-stack web applications and
+            interactive platforms. Demonstrating real-time state
+            synchronization, AI integrations, PostgreSQL data modeling, and
+            polished user interfaces.
           </p>
         </motion.div>
 
@@ -100,7 +100,7 @@ const Projects = () => {
                 <Link
                   key={project.id}
                   to={project.route}
-                  className="transition-transform duration-300 hover:-translate-y-1"
+                  className="transition-transform duration-300 hover:-translate-y-1 block"
                 >
                   {cardContent}
                 </Link>
